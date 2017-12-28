@@ -1,0 +1,15 @@
+h1 All posts
+
+table.table
+  thead
+    tr
+      th scope="col" #
+      th scope="col" Creator
+      th scope="col" Title
+      th scope="col" Body
+      th scope="col" Category
+
+  tbody
+    = render @posts
+
+= render 'csv_features'

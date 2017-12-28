@@ -1,0 +1,11 @@
+h1
+  | #{@user.email} info
+
+h2
+  = image_tag(@user.avatar_url(:thumb)) if @user.avatar.present?
+  br/
+  | Name: #{@user.name}
+  br/
+  | Age: #{@user.age}
+
+= link_to 'Edit profile', edit_user_path(@user)

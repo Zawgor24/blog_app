@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlogAppLesson13</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if current_user.present? %>
+      <%= current_user.email %>
+      <%= link_to 'Home', root_path %>
+      <%= link_to 'Profile', current_user %>
+      <%= link_to 'Create new post', new_user_post_path(current_user) %>
+      <%= link_to 'Log out', destroy_user_session_path , method: :delete %> <br>
+      <%= link_to 'Categories', categories_path %>
+      <%= link_to 'New category', new_category_path %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

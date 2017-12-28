@@ -1,0 +1,15 @@
+h1 All categories
+
+table.table
+  thead
+    tr
+      th scope="col" #
+      th scope="col" Name
+      th scope="col" Category parent
+      th scope="col"
+      th scope="col"
+
+  tbody
+    = render @categories
+
+= link_to 'Create new Category', new_category_path

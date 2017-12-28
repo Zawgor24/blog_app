@@ -1,0 +1,11 @@
+br/
+= pluralize @post.reputation_for(:likes).to_i, 'like'
+br/
+= link_to 'Like', like_post_path(@post, type: 'Like'), method: 'post' 
+||
+= link_to 'Dislike', like_post_path(@post, type: 'Dislike'), method: 'post'
+br/
+
+- if @post.reputation_for(:likes) >= 1
+  | A list of users who liked this: 
+  = render 'liked_users'

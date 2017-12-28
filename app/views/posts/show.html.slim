@@ -1,0 +1,30 @@
+h1 
+  | Post №#{ @post.id }
+
+h3
+  strong Title:
+  | #{ @post.title }
+
+p
+  strong Body:
+  | #{ @post.body }
+
+- if @post.category.present?
+  p
+    strong Category:
+    - @post.category.ancestors.each do |parent|
+      | #{link_to parent.name, parent},
+
+    =  link_to @post.category.name, @post.category 
+
+p
+  | This page has #{ @post.visits } visits
+
+  = render 'likes'
+
+
+= link_to 'Edit', edit_post_path(@post)
+br/
+= link_to 'Delete', @post,
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' }

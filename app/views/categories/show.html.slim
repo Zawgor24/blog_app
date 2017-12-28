@@ -1,0 +1,14 @@
+h1 Info
+
+h3
+  | Category name: #{@category.name}
+  br/
+
+  - if @category.parent.present?
+    | Category parent name: #{@category.parent.name}
+
+
+- if @category.posts.present?
+  | All posts of this category:
+  br/
+  = render 'post'
